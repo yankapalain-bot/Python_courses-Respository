@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a6364776d5c9071d5905a5487d04df9d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a6364776d5c9071d5905a5487d04df9d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a6364776d5c9071d5905a5487d04df9d = L.map(
+                "map_a6364776d5c9071d5905a5487d04df9d",
+                {
+                    center: [51.5074, -0.1278],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e11b537dd7b2f1d8a81eeeb7751e1dd5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e11b537dd7b2f1d8a81eeeb7751e1dd5.addTo(map_a6364776d5c9071d5905a5487d04df9d);
+        
+    
+            var marker_0bb3f9ee49836a5b6225fb86a76af3e8 = L.marker(
+                [51.50359, -0.10085],
+                {
+}
+            ).addTo(map_a6364776d5c9071d5905a5487d04df9d);
+        
+    
+            var icon_45e69538eae1c15f640d1f6895644b7b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b05216dc96072eb197c1f34d19521e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_996b4e94803d2d6b28d1ffbbdac7ca38 = $(`<div id="html_996b4e94803d2d6b28d1ffbbdac7ca38" style="width: 100.0%; height: 100.0%;"><b>Restaurant: name</b><br>Food: Grillades</div>`)[0];
+                popup_1b05216dc96072eb197c1f34d19521e0.setContent(html_996b4e94803d2d6b28d1ffbbdac7ca38);
+            
+        
+
+        marker_0bb3f9ee49836a5b6225fb86a76af3e8.bindPopup(popup_1b05216dc96072eb197c1f34d19521e0)
+        ;
+
+        
+    
+    
+            marker_0bb3f9ee49836a5b6225fb86a76af3e8.bindTooltip(
+                `<div>
+                     Bala Baya Restaurant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0bb3f9ee49836a5b6225fb86a76af3e8.setIcon(icon_45e69538eae1c15f640d1f6895644b7b);
+            
+    
+            var marker_9d51d3c1c3ab3506dba6a566103e9998 = L.marker(
+                [51.52281, -0.11082],
+                {
+}
+            ).addTo(map_a6364776d5c9071d5905a5487d04df9d);
+        
+    
+            var icon_fa61da552301c7cdb8479126eacc6719 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ece3fa64c15d1a9c1b0d30da007c74c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7f3507c496eb81cb70db5061a88d2600 = $(`<div id="html_7f3507c496eb81cb70db5061a88d2600" style="width: 100.0%; height: 100.0%;"><b>Restaurant: name</b><br>Food: Chinese</div>`)[0];
+                popup_ece3fa64c15d1a9c1b0d30da007c74c9.setContent(html_7f3507c496eb81cb70db5061a88d2600);
+            
+        
+
+        marker_9d51d3c1c3ab3506dba6a566103e9998.bindPopup(popup_ece3fa64c15d1a9c1b0d30da007c74c9)
+        ;
+
+        
+    
+    
+            marker_9d51d3c1c3ab3506dba6a566103e9998.bindTooltip(
+                `<div>
+                     Tattu London
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9d51d3c1c3ab3506dba6a566103e9998.setIcon(icon_fa61da552301c7cdb8479126eacc6719);
+            
+    
+            var marker_bb95566d4cedc3d0f66bdc0f4353ec30 = L.marker(
+                [51.53819, -0.03529],
+                {
+}
+            ).addTo(map_a6364776d5c9071d5905a5487d04df9d);
+        
+    
+            var icon_a3432d6324f6fa6aa455d7ed0277f4a1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_89c2f8363a47949bb6b786825302f645 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0071ae67eac44a3e7cffad48d4a574a2 = $(`<div id="html_0071ae67eac44a3e7cffad48d4a574a2" style="width: 100.0%; height: 100.0%;"><b>Restaurant: name</b><br>Food: European</div>`)[0];
+                popup_89c2f8363a47949bb6b786825302f645.setContent(html_0071ae67eac44a3e7cffad48d4a574a2);
+            
+        
+
+        marker_bb95566d4cedc3d0f66bdc0f4353ec30.bindPopup(popup_89c2f8363a47949bb6b786825302f645)
+        ;
+
+        
+    
+    
+            marker_bb95566d4cedc3d0f66bdc0f4353ec30.bindTooltip(
+                `<div>
+                     Da Terra Restaurant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bb95566d4cedc3d0f66bdc0f4353ec30.setIcon(icon_a3432d6324f6fa6aa455d7ed0277f4a1);
+            
+    
+            var marker_55008d9700fa0dec8079ccd0822a4178 = L.marker(
+                [51.50851, -0.15467],
+                {
+}
+            ).addTo(map_a6364776d5c9071d5905a5487d04df9d);
+        
+    
+            var icon_8db8fbd4d7596037b5e8b22ef39404bf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7ecd284f73d3e36e58641971124baad4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6b5137d746b22df5666c466ae48b7f9 = $(`<div id="html_b6b5137d746b22df5666c466ae48b7f9" style="width: 100.0%; height: 100.0%;"><b>Park Ln</b><br>Playground: Yes/No</div>`)[0];
+                popup_7ecd284f73d3e36e58641971124baad4.setContent(html_b6b5137d746b22df5666c466ae48b7f9);
+            
+        
+
+        marker_55008d9700fa0dec8079ccd0822a4178.bindPopup(popup_7ecd284f73d3e36e58641971124baad4)
+        ;
+
+        
+    
+    
+            marker_55008d9700fa0dec8079ccd0822a4178.bindTooltip(
+                `<div>
+                     Park Ln
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_55008d9700fa0dec8079ccd0822a4178.setIcon(icon_8db8fbd4d7596037b5e8b22ef39404bf);
+            
+    
+            var marker_4077baa466be33a2c5a843e2414a68a7 = L.marker(
+                [51.54843, -0.15303],
+                {
+}
+            ).addTo(map_a6364776d5c9071d5905a5487d04df9d);
+        
+    
+            var icon_1e5ea385a5fb477c7de3e6fc6e493d8a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3fbd7973f3b37de59c4449676593a7ec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c3269ffb1d73c1735c7daf85c49638e9 = $(`<div id="html_c3269ffb1d73c1735c7daf85c49638e9" style="width: 100.0%; height: 100.0%;"><b>The Gree Park</b><br>Playground: Yes/No</div>`)[0];
+                popup_3fbd7973f3b37de59c4449676593a7ec.setContent(html_c3269ffb1d73c1735c7daf85c49638e9);
+            
+        
+
+        marker_4077baa466be33a2c5a843e2414a68a7.bindPopup(popup_3fbd7973f3b37de59c4449676593a7ec)
+        ;
+
+        
+    
+    
+            marker_4077baa466be33a2c5a843e2414a68a7.bindTooltip(
+                `<div>
+                     The Gree Park
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4077baa466be33a2c5a843e2414a68a7.setIcon(icon_1e5ea385a5fb477c7de3e6fc6e493d8a);
+            
+    
+            var marker_65f264ddd306be00890c3c94fbede40e = L.marker(
+                [51.52732, -0.08816],
+                {
+}
+            ).addTo(map_a6364776d5c9071d5905a5487d04df9d);
+        
+    
+            var icon_e85595cb7195f248cca6b9744bfee738 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_33f8f4acfe83c2d9638113bde95175c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a0e5e90e569d7c0b6871be7418e88098 = $(`<div id="html_a0e5e90e569d7c0b6871be7418e88098" style="width: 100.0%; height: 100.0%;"><b>The British Museum</b><br>Entry: €X</div>`)[0];
+                popup_33f8f4acfe83c2d9638113bde95175c5.setContent(html_a0e5e90e569d7c0b6871be7418e88098);
+            
+        
+
+        marker_65f264ddd306be00890c3c94fbede40e.bindPopup(popup_33f8f4acfe83c2d9638113bde95175c5)
+        ;
+
+        
+    
+    
+            marker_65f264ddd306be00890c3c94fbede40e.bindTooltip(
+                `<div>
+                     The British Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_65f264ddd306be00890c3c94fbede40e.setIcon(icon_e85595cb7195f248cca6b9744bfee738);
+            
+    
+            var marker_6d7b4482da4d88edb751e743aa092a2d = L.marker(
+                [51.50382, -0.1479],
+                {
+}
+            ).addTo(map_a6364776d5c9071d5905a5487d04df9d);
+        
+    
+            var icon_5866c00d71836ea97194f32fd27038f4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fe80c337597f6540f68ed0008d8ff9f1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7df49add36bf20ed392bc0eab3561dd1 = $(`<div id="html_7df49add36bf20ed392bc0eab3561dd1" style="width: 100.0%; height: 100.0%;"><b>Natural History Museum</b><br>Entry: €X</div>`)[0];
+                popup_fe80c337597f6540f68ed0008d8ff9f1.setContent(html_7df49add36bf20ed392bc0eab3561dd1);
+            
+        
+
+        marker_6d7b4482da4d88edb751e743aa092a2d.bindPopup(popup_fe80c337597f6540f68ed0008d8ff9f1)
+        ;
+
+        
+    
+    
+            marker_6d7b4482da4d88edb751e743aa092a2d.bindTooltip(
+                `<div>
+                     Natural History Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6d7b4482da4d88edb751e743aa092a2d.setIcon(icon_5866c00d71836ea97194f32fd27038f4);
+            
+</script>
+</html>
