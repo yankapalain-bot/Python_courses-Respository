@@ -1,0 +1,184 @@
+{
+    "students": [
+        {
+            "student_id": 1001,
+            "student_name": "Alice Johnson",
+            "grade_level": 10,
+            "attendance": {
+                "201": [
+                    true,
+                    false,
+                    true
+                ]
+            },
+            "schedule": {
+                "Monday": [
+                    "Mathematics",
+                    "Science"
+                ],
+                "Wednesday": [
+                    "English Literature"
+                ]
+            }
+        },
+        {
+            "student_id": 1002,
+            "student_name": "Bob Smith",
+            "grade_level": 11,
+            "attendance": {
+                "201": [
+                    true,
+                    true
+                ]
+            },
+            "schedule": {
+                "Tuesday": [
+                    "Mathematics"
+                ],
+                "Thursday": [
+                    "English Literature"
+                ]
+            }
+        },
+        {
+            "student_id": 1003,
+            "student_name": "Charlie Brown",
+            "grade_level": 9,
+            "attendance": {
+                "204": [
+                    false,
+                    true
+                ]
+            },
+            "schedule": {
+                "Monday": [
+                    "History"
+                ]
+            }
+        },
+        {
+            "student_id": 1004,
+            "student_name": "Diana Prince",
+            "grade_level": 12,
+            "attendance": {},
+            "schedule": {
+                "Friday": [
+                    "Science"
+                ]
+            }
+        },
+        {
+            "student_id": 1005,
+            "student_name": "Evan Wright",
+            "grade_level": 10,
+            "attendance": {},
+            "schedule": {
+                "Wednesday": [
+                    "Mathematics"
+                ]
+            }
+        }
+    ],
+    "classes": [
+        {
+            "class_id": 201,
+            "class_name": "Mathematics",
+            "teacher": "Dr. Smith",
+            "students": [
+                1001,
+                1002,
+                1003,
+                1005
+            ]
+        },
+        {
+            "class_id": 202,
+            "class_name": "Science",
+            "teacher": "Ms. Davis",
+            "students": [
+                1001,
+                1004
+            ]
+        },
+        {
+            "class_id": 203,
+            "class_name": "English Literature",
+            "teacher": "Mr. Johnson",
+            "students": [
+                1002,
+                1004
+            ]
+        },
+        {
+            "class_id": 204,
+            "class_name": "History",
+            "teacher": "Mrs. Williams",
+            "students": [
+                1003,
+                1005
+            ]
+        }
+    ],
+    "grades": [
+        {
+            "grade_id": 301,
+            "student_id": 1001,
+            "class_id": 201,
+            "score": 95
+        },
+        {
+            "grade_id": 302,
+            "student_id": 1001,
+            "class_id": 202,
+            "score": 88
+        },
+        {
+            "grade_id": 303,
+            "student_id": 1002,
+            "class_id": 201,
+            "score": 78
+        },
+        {
+            "grade_id": 304,
+            "student_id": 1002,
+            "class_id": 203,
+            "score": 92
+        },
+        {
+            "grade_id": 305,
+            "student_id": 1003,
+            "class_id": 201,
+            "score": 85
+        },
+        {
+            "grade_id": 306,
+            "student_id": 1003,
+            "class_id": 204,
+            "score": 90
+        },
+        {
+            "grade_id": 307,
+            "student_id": 1004,
+            "class_id": 202,
+            "score": 96
+        },
+        {
+            "grade_id": 308,
+            "student_id": 1004,
+            "class_id": 203,
+            "score": 89
+        },
+        {
+            "grade_id": 309,
+            "student_id": 1005,
+            "class_id": 201,
+            "score": 82
+        },
+        {
+            "grade_id": 310,
+            "student_id": 1005,
+            "class_id": 204,
+            "score": 75
+        }
+    ]
+}
