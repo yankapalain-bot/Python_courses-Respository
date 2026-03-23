@@ -105,14 +105,31 @@
 # ============================================
 
 """
-1. Add a Teacher class with attributes (teacher_id, name, subjects)       ✅ COMPLETE
-2. Add a method to calculate class average                                ✅ COMPLETE
-3. Add search functionality (find students by name)                       ✅ COMPLETE
-4. Add data persistence (save to and load from a file)                    ✅ COMPLETE
-5. Add a report card generator                                            ✅ COMPLETE
-6. Add GPA calculation (4.0 scale)                                        ✅ COMPLETE
-7. Add attendance tracking                                                ✅ COMPLETE
-8. Add student schedules/timetables                                       ✅ COMPLETE
+1. Add a Teacher class with attributes (teacher_id, name, subjects)        ✅ COMPLETE
+
+2. Add a method to calculate class average                                 ✅ COMPLETE
+      calculate_class_average(self, class_id)
+
+3. Add search functionality (find students by name)                        ✅ COMPLETE
+      find_students_by_name(self, name)
+
+4. Add data persistence (save to and load from a file):                    ✅ COMPLETE
+      save_data(self, filename="school_data.json")
+      load_data(self, filename="school_data.json")
+
+5. Add a report card generator                                             ✅ COMPLETE
+      generate_report_card(self, student_id)
+ 
+6. Add GPA calculation (4.0 scale)                                         ✅ COMPLETE
+      calculate_gpa(self, student_id)
+
+7. Add attendance tracking:                                                ✅ COMPLETE
+      mark__attendance(self, student_id, class_id, present=True)
+      attendance_percentage(self, student_id, class_id)
+
+8. Add student schedules/timetables                                        ✅ COMPLETE
+      add_schedule(self, student_id, day, class_name)
+      view_schedule(self, student_id)
 """
 ║                                                                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════╝
