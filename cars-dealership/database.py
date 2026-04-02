@@ -2,6 +2,7 @@
 
 import sqlite3
 from car import Car
+from customer import Customer
 
 
 # ─────────────────────────────────────────────
@@ -48,6 +49,23 @@ def initialize_database():
             year    INTEGER NOT NULL,
             price   REAL    NOT NULL,
             mileage INTEGER NOT NULL
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS customers (
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            name    TEXT    NOT NULL,
+            phone   TEXT    NOT NULL            
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS sales (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            car_id      TEXT    NOT NULL,
+            customer_id TEXT    NOT NULL,
+            date        INTEGER NOT NULL           
         )
     """)
 
@@ -124,7 +142,63 @@ def import_cars():
 
     print(f"✅ {len(sample_cars)} sample cars imported successfully!")
 
+def import_customer():
+    con = get_connection()
+    cursor = con.cursor()
 
+    cursor.execute("SELECT COUNT(*) FROM customers")
+    count = cursor.fetchone()[0]
+
+    if count > 0:
+        print(f"ℹ️  Import skipped — {count} customers already in database.")
+        con.close()
+        return
+    
+
+    sample_customers = [
+        ("Jeff BARRET", "+1 780 825 9632"),
+        ("Kevin DUBOIS", "+1 580 830 2369"),
+        ("Anne BRICKS", "+1 645 505 8520"),
+    ]
+
+    cursor.executemany("""
+        INSERT INTO customers (name, phone)
+        VALUES (?,?)
+    """, (sample_customers))
+
+    con.commit()
+    con.close()
+
+    print(f"✅ {len(sample_customers)} imported Successfully ")
+
+
+def import_sale():
+    con = get_connection()
+    cursor = con.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM sales")
+    count = cursor.fetchone()[0]
+
+    if count > 0:
+        print("import Skipped.  {count}: sales already in database")
+        con.close()
+        return
+    
+    sample_sales = [
+        (1, 3, "2026"),
+        (2, 3, "2025"),
+        (3, 1, "2026")
+    ]
+
+    cursor.executemany("""
+        INSERT INTO sales
+        VALUES (?,?,?)
+    """, (sample_sales))
+    
+    con.commit()
+    con.close()
+
+    print("✅ {len(sample_sales)}: imported successfully")
 # ─────────────────────────────────────────────
 # CREATE
 # ─────────────────────────────────────────────
@@ -164,6 +238,35 @@ def add_car(car):
 # READ
 # ─────────────────────────────────────────────
 
+def database_sumary():
+    result = []
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    # Check if the table already has data — don't import twice
+    cursor.execute("SELECT COUNT(*) FROM cars")
+    count = cursor.fetchone()[0]   # fetchone() → (10,)  so [0] → 10
+    result.append(count)
+
+    cursor.execute("SELECT AVG(price) FROM cars")
+    avg = round(cursor.fetchone()[0], 1)
+    result.append(avg)
+
+    cursor.execute("SELECT make, COUNT(*) AS count FROM cars GROUP BY make ORDER BY count DESC")
+    common = cursor.fetchone()[0], 1
+    result.append(common)
+
+
+
+    conn.close()
+    return result
+    
+
+    # if count > 0:        
+    #     conn.close()
+    #     return  False
+    
+    
 def get_all_cars():
     """
     Retrieves every car from the database.
@@ -183,6 +286,127 @@ def get_all_cars():
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM cars ORDER BY id")
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    # Unpack each row tuple into a Car object
+    # Row format: (id, make, model, year, price, mileage)
+    return [Car(id=row[0], make=row[1], model=row[2],
+                year=row[3], price=row[4], mileage=row[5])
+            for row in rows]
+
+
+
+def get_all_cars_by_year_asc():
+    """
+    Retrieves every car from the database.
+    
+    Returns:
+        list[Car]: A list of Car objects (may be empty if no cars exist).
+    
+    'fetchall()' returns a list of tuples, one per row.
+    Each tuple has the format: (id, make, model, year, price, mileage)
+    
+    We use a list comprehension to turn each tuple into a Car object.
+    Notice the argument order matches how the Car class expects them.
+    The '*' in 'Car(*row)' unpacks the tuple — it's equivalent to:
+        Car(row[0], row[1], row[2], row[3], row[4], row[5])
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM cars ORDER BY year ASC")
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    # Unpack each row tuple into a Car object
+    # Row format: (id, make, model, year, price, mileage)
+    return [Car(id=row[0], make=row[1], model=row[2],
+                year=row[3], price=row[4], mileage=row[5])
+            for row in rows]
+
+
+def get_all_cars_by_year_desc():
+    """
+    Retrieves every car from the database.
+    
+    Returns:
+        list[Car]: A list of Car objects (may be empty if no cars exist).
+    
+    'fetchall()' returns a list of tuples, one per row.
+    Each tuple has the format: (id, make, model, year, price, mileage)
+    
+    We use a list comprehension to turn each tuple into a Car object.
+    Notice the argument order matches how the Car class expects them.
+    The '*' in 'Car(*row)' unpacks the tuple — it's equivalent to:
+        Car(row[0], row[1], row[2], row[3], row[4], row[5])
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM cars ORDER BY year DESC")
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    # Unpack each row tuple into a Car object
+    # Row format: (id, make, model, year, price, mileage)
+    return [Car(id=row[0], make=row[1], model=row[2],
+                year=row[3], price=row[4], mileage=row[5])
+            for row in rows]
+
+
+
+def get_all_cars_by_price_asc():
+    """
+    Retrieves every car from the database.
+    
+    Returns:
+        list[Car]: A list of Car objects (may be empty if no cars exist).
+    
+    'fetchall()' returns a list of tuples, one per row.
+    Each tuple has the format: (id, make, model, year, price, mileage)
+    
+    We use a list comprehension to turn each tuple into a Car object.
+    Notice the argument order matches how the Car class expects them.
+    The '*' in 'Car(*row)' unpacks the tuple — it's equivalent to:
+        Car(row[0], row[1], row[2], row[3], row[4], row[5])
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM cars ORDER BY price ASC")
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    # Unpack each row tuple into a Car object
+    # Row format: (id, make, model, year, price, mileage)
+    return [Car(id=row[0], make=row[1], model=row[2],
+                year=row[3], price=row[4], mileage=row[5])
+            for row in rows]
+
+def get_all_cars_by_price_desc():
+    """
+    Retrieves every car from the database.
+    
+    Returns:
+        list[Car]: A list of Car objects (may be empty if no cars exist).
+    
+    'fetchall()' returns a list of tuples, one per row.
+    Each tuple has the format: (id, make, model, year, price, mileage)
+    
+    We use a list comprehension to turn each tuple into a Car object.
+    Notice the argument order matches how the Car class expects them.
+    The '*' in 'Car(*row)' unpacks the tuple — it's equivalent to:
+        Car(row[0], row[1], row[2], row[3], row[4], row[5])
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM cars ORDER BY price DESC")
     rows = cursor.fetchall()
 
     conn.close()
@@ -329,6 +553,34 @@ def search_cars(keyword):
            OR CAST(year AS TEXT) LIKE ?
         ORDER BY year DESC
     """, (pattern, pattern, pattern))
+
+    rows = cursor.fetchall()
+    conn.close()
+
+    return [Car(id=row[0], make=row[1], model=row[2],
+                year=row[3], price=row[4], mileage=row[5])
+            for row in rows]
+
+
+def filter_cars(price):
+    """
+    Filter cars where price is under or equal to price.    
+    
+    Parameters:
+        price (float): The filter price entered by the user.
+    
+    Returns:
+        list[Car]: A list of matching Car objects (may be empty).
+    
+       
+    The OR lets us match against multiple columns in one query.
+    The CAST converts year (an integer) to text so LIKE can work on it.
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM cars WHERE price <= ?", (price,))
+    
 
     rows = cursor.fetchall()
     conn.close()
